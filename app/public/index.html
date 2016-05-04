@@ -10,59 +10,86 @@
     <title>Node/Angular Todo App</title>
 
     <!-- SCROLLS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
+    <script src="/node_modules/material-design-lite/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
         html                    { overflow-y:scroll; }
-        body                    { padding-top:50px; }
         #todo-list              { margin-bottom:30px; }
+    </style>
+
+    <!-- Square card -->
+    <style>
+        .demo-card-square.mdl-card {
+          width: 320px;
+          height: 320px;
+          margin: 0 auto;
+        }
+        .demo-card-square > .mdl-card__title {
+          color: #fff;
+          background:
+            url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+        }
     </style>
 
     <!-- SPELLS -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
     <script src="/mainController.js"></script>
+    <script src="/fb/fb-init.js"></script>
 
 </head>
 <!-- SET THE CONTROLLER AND GET ALL TODOS -->
 <body ng-controller="mainController">
-    <div class="container">
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1190530957644301',
+        xfbml      : true,
+        version    : 'v2.6'
+      });
+    };
 
-        <!-- HEADER AND TODO COUNT -->
-        <div class="jumbotron text-center">
-            <h1>I'm a Todo-aholic <span class="label label-info">{{ todos.length }}</span></h1>
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Friends Graph</span>
+      </div>
+    </header>
+
+    <main class="mdl-layout__content">
+    <div style="height:100%">
+
+      <div class="demo-card-square mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+          <h2 class="mdl-card__title-text">Facebook login</h2>
         </div>
-
-        <!-- TODO LIST -->
-        <div id="todo-list" class="row">
-            <div class="col-sm-4 col-sm-offset-4">
-
-                <!-- LOOP OVER THE TODOS IN $scope.todos -->
-                <div class="checkbox" ng-repeat="todo in todos">
-                    <label>
-                        <input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
-                    </label>
-                </div>
-
-            </div>
+        <div class="mdl-card__supporting-text">
+          Entre com sua conta do Facebook!
         </div>
-
-        <!-- FORM TO CREATE TODOS -->
-        <div id="todo-form" class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
-                <form>
-                    <div class="form-group">
-
-                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                        <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
-                    </div>
-
-                    <!-- createToDo() WILL CREATE NEW TODOS -->
-                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
-                </form>
-            </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false">
+          </div>
+          <div
+            class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+          </div>
         </div>
+      </div>
 
     </div>
-
+  </main>
+  </div>
 </body>
 </html>

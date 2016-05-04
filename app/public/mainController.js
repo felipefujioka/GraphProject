@@ -1,7 +1,7 @@
 //public/mainController
-var friendsListModule = angular.module("friendsApp", []);
+var friendsApp = angular.module("friendsApp", []);
 
-friendsListModule.controller("mainController", function($scope, $http) {
+friendsApp.controller("mainController", function($scope, $http) {
         $scope.formData = {};
 
         // when landing on the page, get all todos and show them
@@ -39,5 +39,4 @@ friendsListModule.controller("mainController", function($scope, $http) {
                 });
         };
 
-    }
-}
+});
