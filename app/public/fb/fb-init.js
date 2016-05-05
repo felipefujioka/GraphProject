@@ -1,3 +1,6 @@
+var fbToken;
+var fbUserId;
+
 // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -9,6 +12,9 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
+      fbToken = response.authResponse.accessToken
+      fbUserId = response.authResponse.userId
+      location.href = '/graphs'
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -32,7 +38,7 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '{your-app-id}',
+    appId      : '1190530957644301',
     cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="graphApp">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>Node/Angular Todo App</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="/css/material-design-lite/material.min.css">
+    <script src="/css/material-design-lite/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        html                    { overflow-y:scroll; }
+        #todo-list              { margin-bottom:30px; }
+    </style>
+
+    <!-- Square card -->
+    <style>
+        .demo-card-square.mdl-card {
+          width: 320px;
+          height: 320px;
+          margin: 0 auto;
+        }
+        .demo-card-square > .mdl-card__title {
+          color: #fff;
+          background:
+            url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+        }
+    </style>
+
+    <!-- SPELLS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="/graphController.js"></script>
+    <!-- <script src="/fb/fb-init.js"></script> -->
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+<body ng-controller="graphController">
+  <script src="/fb/fb-init.js"></script>
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Friends Graph</span>
+      </div>
+    </header>
+
+    <main class="mdl-layout__content">
+    <div style="height:100%">
+
+    </div>
+  </main>
+  </div>
+</body>
+</html>

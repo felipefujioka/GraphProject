@@ -10,8 +10,8 @@
     <title>Node/Angular Todo App</title>
 
     <!-- SCROLLS -->
-    <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
-    <script src="/node_modules/material-design-lite/material.min.js"></script>
+    <link rel="stylesheet" href="/css/material-design-lite/material.min.css">
+    <script src="/css/material-design-lite/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
         html                    { overflow-y:scroll; }
@@ -36,28 +36,12 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
     <script src="/mainController.js"></script>
-    <script src="/fb/fb-init.js"></script>
+    <!-- <script src="/fb/fb-init.js"></script> -->
 
 </head>
 <!-- SET THE CONTROLLER AND GET ALL TODOS -->
 <body ng-controller="mainController">
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '1190530957644301',
-        xfbml      : true,
-        version    : 'v2.6'
-      });
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
+  <script src="/fb/fb-init.js"></script>
 
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
@@ -77,13 +61,8 @@
           Entre com sua conta do Facebook!
         </div>
         <div class="mdl-card__actions mdl-card--border">
-          <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false">
-          </div>
-          <div
-            class="fb-like"
-            data-share="true"
-            data-width="450"
-            data-show-faces="true">
+          <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"
+          ng-click="login()">
           </div>
         </div>
       </div>

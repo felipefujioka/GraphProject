@@ -14,6 +14,13 @@ friendsApp.controller("mainController", function($scope, $http) {
                 console.log('Error: ' + data);
             });
 
+        $scope.login = function() {
+          FB.getLoginStatus(function(response) {
+      		  token = response.authResponse.accessToken
+      		  userId = response.authResponse.userId
+      		});
+        }
+
         // when submitting the add form, send the text to the node API
         $scope.createTodo = function() {
             $http.post('/api/friend', $scope.formData)
