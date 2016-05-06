@@ -12,9 +12,9 @@ var fbUserId;
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
-      fbToken = response.authResponse.accessToken
-      fbUserId = response.authResponse.userId
-      location.href = '/graphs'
+      fbToken = response.authResponse.accessToken;
+      fbUserId = response.authResponse.userId;
+      location.href = '/graph';
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
