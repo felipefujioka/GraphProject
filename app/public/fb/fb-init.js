@@ -14,6 +14,7 @@ var fbUserId;
       testAPI();
       fbToken = response.authResponse.accessToken
       fbUserId = response.authResponse.userId
+
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
