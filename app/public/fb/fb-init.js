@@ -14,7 +14,6 @@ var fbUserId;
       testAPI();
       fbToken = response.authResponse.accessToken
       fbUserId = response.authResponse.userId
-      location.href = '/graphs'
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -78,7 +77,5 @@ var fbUserId;
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
     });
   }

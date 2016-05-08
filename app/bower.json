@@ -1,0 +1,26 @@
+{
+  "name": "GraphApp",
+  "description": "Application to explore the power of the graph API of Facebook.",
+  "main": "app.js",
+  "authors": [
+    "Felipe Jun Fujioka Shida"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [
+    "graph",
+    "facebook",
+    "node",
+    "angular"
+  ],
+  "dependencies": {
+    "angular-facebook": "^0.2.3"
+  }
+}
